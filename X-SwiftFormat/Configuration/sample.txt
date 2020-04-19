@@ -1,0 +1,40 @@
+import Cocoa
+
+enum CompassPoint: String {
+    case north = "n"
+    case south = "s"
+    case east = "e"
+    case west = "w"
+}
+
+class Compass: NSObject {
+
+	private let point: CompassPoint = .north
+	fileprivate var x: Int = 0, y: Int = 0, z: Int = 0
+
+	override init() {
+		super.init()
+
+		z = x + y
+		if z < 0 {
+			print("z < 0")
+		} else {
+			print("z ≥ 0")
+		}
+
+		switch point {
+		case .north:
+			print("north")
+		case .south:
+			print("south")
+		case .east:
+			print("east")
+		case .west:
+			print("west")
+		}
+	}
+
+	private func rawPoints() -> [CompassPoint] {
+		return  [.north, .south, .east, .west]
+	}
+}
