@@ -33,7 +33,7 @@ class PreviewEditorLayoutManager: NSLayoutManager {
 						let glyphFragment = self.lineFragmentRect(forGlyphAt: index, effectiveRange: nil)
 						pointToDrawAt.x += glyphFragment.origin.x
 						pointToDrawAt.y = glyphFragment.origin.y
-						"»".draw(at: pointToDrawAt, withAttributes: textFontAttributes)
+						"≫".draw(at: pointToDrawAt, withAttributes: textFontAttributes)
 					} else if characterToCheck == "\n" {
 						var pointToDrawAt = self.location(forGlyphAt: index)
 						let glyphFragment = self.lineFragmentRect(forGlyphAt: index, effectiveRange: nil)

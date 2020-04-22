@@ -25,6 +25,7 @@ class PreviewWindow: NSWindow {
 
 	override func awakeFromNib() {
 		super.awakeFromNib()
+		self.isMovableByWindowBackground = true
 		if let filepath = Bundle.main.path(forResource: "sample", ofType: "txt") {
 			do {
 				self.template = try String(contentsOfFile: filepath)
