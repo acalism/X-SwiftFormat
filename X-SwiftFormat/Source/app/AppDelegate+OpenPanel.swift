@@ -14,38 +14,17 @@ extension AppDelegate {
 		let dialog = NSOpenPanel()
 		dialog.showsHiddenFiles = true
 		dialog.canChooseDirectories = false
-		dialog.allowedFileTypes = ["json"]
+		dialog.allowsMultipleSelection = true
+		dialog.allowedFileTypes = [XSFDocType.config.rawValue, XSFDocType.rules.rawValue]
 
 		if dialog.runModal() == .OK {
-			if let url = dialog.url {
-				if let data = try? Data(contentsOf: url) {
-					if let json = data.json as? [String: Any] {
-						if let metadata = json["metadata"] as? [String: String] {
-							if metadata["type"] == "configuration" {
-								var configuration: [String: Any] = [:]
-								for entry in json {
-									let key = entry.key
-									let value = entry.value
-									if key != "metadata" {
-										configuration[key] = value
-									}
-								}
-								_ = UserDefaults.saveConfiguration(configuration: configuration)
-								tabViewConfiguration.reloadDataSource()
-							} else if metadata["type"] == "rules" {
-								var rules: [String: Bool] = [:]
-								for entry in json {
-									let key = entry.key
-									if let value = entry.value as? Bool {
-										if key != "metadata" {
-											rules[key] = value
-										}
-									}
-								}
-								_ = UserDefaults.saveRules(rules: rules)
-								tabViewRules.reloadDataSource()
-							}
-						}
+			for url in dialog.urls {
+				if let docType = XSFDocType(rawValue: url.pathExtension.lowercased()) {
+					switch docType {
+					case .config:
+						XSFDocHandler.readConfigFile(with: url)
+					case .rules:
+						XSFDocHandler.readRulesFile(with: url)
 					}
 				}
 			}

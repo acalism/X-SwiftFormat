@@ -55,10 +55,17 @@ import Cocoa
 			}
 		}
 		NotificationCenter.default.addObserver(self, selector: #selector(self.userDefaultsChangedNotification(notification:)), name: kUserDefaultsChangedNotification, object: nil)
+		NotificationCenter.default.addObserver(self, selector: #selector(self.readXSFFileNotification(notification:)), name: kReadXSFFileNotification, object: nil)
 	}
 
 	@objc func userDefaultsChangedNotification(notification: Notification) {
 		previewWindow.setConfiguration(configuration: tabViewConfiguration.sharedConfiguration, rules: tabViewRules.sharedRules)
+	}
+
+	@objc func readXSFFileNotification(notification: Notification) {
+		previewWindow.setConfiguration(configuration: tabViewConfiguration.sharedConfiguration, rules: tabViewRules.sharedRules)
+		tabViewConfiguration.reloadDataSource()
+		tabViewRules.reloadDataSource()
 	}
 
 	func applicationDidBecomeActive(_ notification: Notification) {
@@ -78,6 +85,10 @@ import Cocoa
 			window.makeKeyAndOrderFront(self)
 		}
 		return true
+	}
+
+	func application(_ sender: NSApplication, openFiles filenames: [String]) {
+		XSFDocHandler.handle(filenames: filenames)
 	}
 
 	func changeApplicationIconImage() {

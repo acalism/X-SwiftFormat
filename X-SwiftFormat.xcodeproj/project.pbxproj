@@ -24,6 +24,8 @@
 		B26912162431ED5E00B3482B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B26912152431ED5E00B3482B /* AppDelegate.swift */; };
 		B26912182431ED5E00B3482B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B26912172431ED5E00B3482B /* Assets.xcassets */; };
 		B269121B2431ED5E00B3482B /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = B26912192431ED5E00B3482B /* MainMenu.xib */; };
+		B26BC8332450A0460037BB85 /* XSFDoc.swift in Sources */ = {isa = PBXBuildFile; fileRef = B26BC8322450A0460037BB85 /* XSFDoc.swift */; };
+		B26BC8352450AE640037BB85 /* XSFDocHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = B26BC8342450AE640037BB85 /* XSFDocHandler.swift */; };
 		B2753941243228CE0006DB97 /* TabConfigurationViewCellSwitch.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2753940243228CE0006DB97 /* TabConfigurationViewCellSwitch.swift */; };
 		B2753943243228E10006DB97 /* TabConfigurationViewCellNumber.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2753942243228E10006DB97 /* TabConfigurationViewCellNumber.swift */; };
 		B2753945243228EC0006DB97 /* TabConfigurationViewCellObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2753944243228EC0006DB97 /* TabConfigurationViewCellObject.swift */; };
@@ -115,6 +117,8 @@
 		B269121A2431ED5E00B3482B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		B269121C2431ED5E00B3482B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B269121D2431ED5E00B3482B /* XSwiftFormat.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = XSwiftFormat.entitlements; sourceTree = "<group>"; };
+		B26BC8322450A0460037BB85 /* XSFDoc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XSFDoc.swift; sourceTree = "<group>"; };
+		B26BC8342450AE640037BB85 /* XSFDocHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XSFDocHandler.swift; sourceTree = "<group>"; };
 		B2753940243228CE0006DB97 /* TabConfigurationViewCellSwitch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabConfigurationViewCellSwitch.swift; sourceTree = "<group>"; };
 		B2753942243228E10006DB97 /* TabConfigurationViewCellNumber.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabConfigurationViewCellNumber.swift; sourceTree = "<group>"; };
 		B2753944243228EC0006DB97 /* TabConfigurationViewCellObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabConfigurationViewCellObject.swift; sourceTree = "<group>"; };
@@ -288,6 +292,7 @@
 		B26912242431EDA700B3482B /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				B26BC8312450A0370037BB85 /* doc */,
 				B29654B224322E90004265F3 /* extensions */,
 				B275394724322B340006DB97 /* generic */,
 				B2753946243229C50006DB97 /* window */,
@@ -314,6 +319,15 @@
 				B26912192431ED5E00B3482B /* MainMenu.xib */,
 			);
 			name = Xib;
+			sourceTree = "<group>";
+		};
+		B26BC8312450A0370037BB85 /* doc */ = {
+			isa = PBXGroup;
+			children = (
+				B26BC8322450A0460037BB85 /* XSFDoc.swift */,
+				B26BC8342450AE640037BB85 /* XSFDocHandler.swift */,
+			);
+			path = doc;
 			sourceTree = "<group>";
 		};
 		B275393D243228490006DB97 /* cell */ = {
@@ -564,6 +578,7 @@
 				B24104A324320D8F00C36DB9 /* Constants.swift in Sources */,
 				B2C13D8A24338503007A41C0 /* PreviewWindow.swift in Sources */,
 				B28A528524333C5200904943 /* String+ReverseCamel.swift in Sources */,
+				B26BC8332450A0460037BB85 /* XSFDoc.swift in Sources */,
 				B29983222433BCE8009D8EA5 /* PreviewEditorSyntax.swift in Sources */,
 				B2FC312C244C999900D7E241 /* AppDelegate+OpenPanel.swift in Sources */,
 				B2753945243228EC0006DB97 /* TabConfigurationViewCellObject.swift in Sources */,
@@ -571,6 +586,7 @@
 				B2753943243228E10006DB97 /* TabConfigurationViewCellNumber.swift in Sources */,
 				B2A9C6B524326FB500A2A83F /* TabRulesView.swift in Sources */,
 				B24104A62432127E00C36DB9 /* Config.swift in Sources */,
+				B26BC8352450AE640037BB85 /* XSFDocHandler.swift in Sources */,
 				B24104A92432157500C36DB9 /* SwiftFormatOutputStream.swift in Sources */,
 				B2753941243228CE0006DB97 /* TabConfigurationViewCellSwitch.swift in Sources */,
 				B24C76D9243357090089E63C /* TabConfigurationViewCellDelegate.swift in Sources */,
@@ -738,7 +754,7 @@
 				CODE_SIGN_ENTITLEMENTS = "X-SwiftFormat/XSwiftFormat.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = "β96";
+				CURRENT_PROJECT_VERSION = "β97";
 				DEVELOPMENT_TEAM = TQWQC67C6D;
 				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = "X-SwiftFormat/Info.plist";
@@ -750,7 +766,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/X-SwiftFormat/Framework",
 				);
-				MARKETING_VERSION = 0.9.6;
+				MARKETING_VERSION = 0.9.7;
 				PRODUCT_BUNDLE_IDENTIFIER = com.ruiaureliano.xswiftformat;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -765,7 +781,7 @@
 				CODE_SIGN_ENTITLEMENTS = "X-SwiftFormat/XSwiftFormat.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = "β96";
+				CURRENT_PROJECT_VERSION = "β97";
 				DEVELOPMENT_TEAM = TQWQC67C6D;
 				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = "X-SwiftFormat/Info.plist";
@@ -777,7 +793,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/X-SwiftFormat/Framework",
 				);
-				MARKETING_VERSION = 0.9.6;
+				MARKETING_VERSION = 0.9.7;
 				PRODUCT_BUNDLE_IDENTIFIER = com.ruiaureliano.xswiftformat;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;

@@ -116,9 +116,9 @@ extension AppDelegate {
 		savePanel.showsTagField = false
 		switch tabOption {
 		case .configuration:
-			savePanel.nameFieldStringValue = "swift-format-configuration.json"
+			savePanel.nameFieldStringValue = "swift-format-configuration.\(XSFDocType.config.rawValue)"
 		case .rules:
-			savePanel.nameFieldStringValue = "swift-format-rules.json"
+			savePanel.nameFieldStringValue = "swift-format-rules.\(XSFDocType.rules.rawValue)"
 		}
 		savePanel.beginSheetModal(for: self.window) { (response) in
 			if response.rawValue == 1 {
