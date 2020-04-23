@@ -19,7 +19,6 @@
                 <outlet property="appIcon" destination="icE-xt-TuE" id="lKo-oC-Osn"/>
                 <outlet property="appName" destination="lYt-6T-LLK" id="8BP-As-DKv"/>
                 <outlet property="appVersion" destination="lGL-5g-bq3" id="hdn-Ra-MLN"/>
-                <outlet property="appVersionButton" destination="TjE-pC-umA" id="ey0-zi-AoA"/>
                 <outlet property="previewButton" destination="MDw-KI-Al3" id="vi7-BM-Pw5"/>
                 <outlet property="previewWindow" destination="nRm-5g-kFU" id="IbP-qq-ZUq"/>
                 <outlet property="resetButton" destination="MC4-aL-j94" id="gcG-uL-943"/>
@@ -703,17 +702,6 @@
                                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                         </textFieldCell>
                                     </textField>
-                                    <button hidden="YES" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TjE-pC-umA" userLabel="UPDATE">
-                                        <rect key="frame" x="65" y="27" width="60" height="24"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
-                                        <buttonCell key="cell" type="bevel" bezelStyle="rounded" image="NSCaution" imagePosition="only" alignment="center" enabled="NO" imageScaling="proportionallyDown" inset="2" id="Pmc-R3-KH6">
-                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                            <font key="font" metaFont="systemLight" size="13"/>
-                                        </buttonCell>
-                                        <connections>
-                                            <action selector="appVersionButtonPopover:" target="Voe-Tx-rLC" id="Wub-yO-I1v"/>
-                                        </connections>
-                                    </button>
                                 </subviews>
                             </customView>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yf7-S9-Ufc" userLabel="ANDRE">
@@ -1194,7 +1182,6 @@
         </window>
     </objects>
     <resources>
-        <image name="NSCaution" width="32" height="32"/>
         <image name="app-icon-overlay" width="128" height="128"/>
         <image name="default-help-bt" width="22" height="22"/>
         <image name="dribbble-icon" width="16" height="16"/>
